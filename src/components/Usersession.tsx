@@ -3,6 +3,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import { Button } from './ui/button'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 export default function UserSession() {
     const { data: session } = useSession()
@@ -15,7 +16,7 @@ export default function UserSession() {
                 session && 'bg-slate-300/90'
             )}
         >
-            <div className='flex flex-col space-y-4'>
+            <div className='flex text-black flex-col space-y-4'>
                 {session && (
                     <>
                         <h2 className='text-xl font-bold'>
@@ -29,9 +30,10 @@ export default function UserSession() {
                         </Button>
                     </>
                 )}
-                {!session && pathname !== '/signin' && (
-                    <Button onClick={() => signIn()}>Sign In</Button>
-                )}
+                {!session && <Button onClick={() => signIn()}>Sign In</Button>}
+                <Link href='/protected' className='underline'>
+                    Protected Route
+                </Link>
             </div>
         </main>
     )

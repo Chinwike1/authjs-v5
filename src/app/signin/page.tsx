@@ -14,7 +14,6 @@ import { Input } from '@/components/ui/input'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import UserSession from '@/components/Usersession'
 import Link from 'next/link'
 
 export default function SignInPage() {
@@ -104,7 +103,6 @@ export default function SignInPage() {
             >
                 Sign in with GitHub
             </Button>
-            <UserSession />
         </main>
     )
 }
